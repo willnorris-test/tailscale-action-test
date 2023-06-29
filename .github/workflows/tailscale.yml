@@ -1,0 +1,16 @@
+name: tailscale
+
+on:
+  workflow_dispatch:
+
+jobs:
+  tailscale:
+    runs-on: ["ubuntu-latest"]
+    steps:
+      - uses: tailscale/github-action@main
+        with:
+          oauth-secret: ${{ secrets.OAUTH_SECRET }}
+          version: latest
+          tags: tag:ci
+
+      - run: tailscale netcheck
