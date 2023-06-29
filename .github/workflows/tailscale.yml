@@ -10,7 +10,7 @@ jobs:
       - uses: tailscale/github-action@main
         with:
           oauth-secret: ${{ secrets.OAUTH_SECRET }}
-          version: latest
+          version: 1.44.0
           tags: tag:ci
 
       - run: tailscale netcheck
