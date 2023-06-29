@@ -1,13 +1,15 @@
 name: tailscale
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
   tailscale:
     runs-on: ["ubuntu-latest"]
     steps:
-      - uses: tailscale/github-action@main
+      - uses: tailscale/github-action@will/timeout
         with:
           oauth-secret: ${{ secrets.OAUTH_SECRET }}
           version: 1.44.0
